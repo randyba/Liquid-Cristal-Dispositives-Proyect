@@ -1,9 +1,81 @@
 body{
-    background-color: rgb(4, 0, 255);
+    background-color: rgb(255, 255, 255);
+    margin: 0;
 }
 .circulo{
     border-radius: 50%;
     background-color: #ff0000;
     height: 100px;
     width: 500px;
+}
+.top-container {
+    /* background-color: #ffffff; */
+    padding: 5px;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    background-image: url(./Images/WhatsApp\ Image\ 2024-12-05\ at\ 1.56.20\ AM.jpeg);
+    z-index: 15;
+    opacity: 0.5;
+    /* background-image: url(./Images/imagen\ de\ fondo\ 2.jpg); */
+    /* filter: blur(2px); */
+    /* background-filter: blur(degree-of-blur) */
+    @font-face {
+        font-family: 'Lato';
+        src: url(/Fonts/the_wireframe_demo.otf);
+        font-weight: bold;
+        font-family: bold;
+
+    }
+    h1{
+        font-family: 'Lato';
+        font-weight: bold;
+    }
+  }
+  .logo-ucr{
+    height: 150px;
+    width: 150px;
+    margin-left: 10px;
+    inherits: 1;
+  }
+  .logo-ucr-01{
+    height: 80px;
+    width: 300px;
+    margin-right: 30px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .header {
+    padding: 10px 16px;
+    background: #555;
+    color: #f1f1f1;
+  }
+  
+  .content {
+    padding: 16px;
+  }
+  
+  .sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
+  
+  .sticky + .content {
+    padding-top: 102px;
+  }
+.first-seccion{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 50px;
+}
+.first-half{
+    height: 300px;
+    width: 300px;
 }
