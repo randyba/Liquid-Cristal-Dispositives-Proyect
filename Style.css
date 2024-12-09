@@ -32,6 +32,7 @@ body{
     height: 130px;
     width: 130px;
     margin-left: 50px;
+    
   }
   .logo-ucr-01{
     height: 80px;
@@ -239,4 +240,9 @@ first-seccion:nth-of-type(2n-1) {
 ::-webkit-scrollbar-thumb {
   border-radius: 8px;
   background: #c2c9d2;
+}
+
+
+@media (max-width: 360px){
+    
 }

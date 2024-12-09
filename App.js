@@ -53,6 +53,26 @@ function setSelectedLocale(locale) {
   )}" />${langName}<span class="arrow-down"></span>`;
 }
 
+function loadHTML(locale) {
+  const filePath = `/index${locale}.html`; // Ruta del archivo HTML
+  // const filePath1 = `/translations/index${locale}.html`; // Ruta del archivo HTML
+
+  fetch(filePath)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`Error al cargar ${filePath}`);
+      }
+      return response.text();
+    })
+    .then((html) => {
+      document.documentElement.innerHTML = html; // Reemplazar el contenido completo
+    })
+    .catch((error) => {
+      console.error("Error cargando el HTML:", error);
+    });
+}
+document.documentElement.innerHTML = html;
+
 setSelectedLocale(locales[0]);
 const browserLang = new Intl.Locale(navigator.language).language;
 for (const locale of locales) {
