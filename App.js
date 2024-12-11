@@ -51,27 +51,38 @@ function setSelectedLocale(locale) {
   dropdownBtn.innerHTML = `<img src="${getFlagSrc(
     intlLocale.region
   )}" />${langName}<span class="arrow-down"></span>`;
+  loadHTML(locale)
 }
 
 function loadHTML(locale) {
-  const filePath = `/index${locale}.html`; // Ruta del archivo HTML
-  // const filePath1 = `/translations/index${locale}.html`; // Ruta del archivo HTML
-
-  fetch(filePath)
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error(`Error al cargar ${filePath}`);
-      }
-      return response.text();
-    })
-    .then((html) => {
-      document.documentElement.innerHTML = html; // Reemplazar el contenido completo
-    })
-    .catch((error) => {
-      console.error("Error cargando el HTML:", error);
-    });
+  const filePath = `index-${locale}.html`; // Construir la ruta del archivo
+  window.location.href = filePath; // Redirigir al archivo directamente
 }
-document.documentElement.innerHTML = html;
+
+
+// function loadHTML(locale) {
+//   const filePath = `index-${locale}.html`; // Ruta del archivo HTML
+//   // const filePath1 = `/translations/index${locale}.html`; // Ruta del archivo HTML
+
+//   fetch(filePath)
+//     .then((response) => {
+//       if (!response.ok) {
+//         throw new Error(`Error al cargar ${filePath}`);
+//       }
+//       return response.text();
+//     })
+//     .then((html) => {
+//       document.documentElement.innerHTML = html; // Reemplazar el contenido completo
+//       // Reasignar el script del archivo JS
+//       const scriptTag = document.createElement("App");
+//       scriptTag.src = "App.js"; // Archivo de JavaScript principal
+//       document.body.appendChild(scriptTag);
+//     })
+//     .catch((error) => {
+//       console.error("Error cargando el HTML:", error);
+//     });
+// }
+
 
 setSelectedLocale(locales[0]);
 const browserLang = new Intl.Locale(navigator.language).language;
@@ -81,3 +92,4 @@ for (const locale of locales) {
     setSelectedLocale(locale);
   }
 }
+

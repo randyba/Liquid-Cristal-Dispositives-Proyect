@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Liquid Cristal Dispositives</title>
+    <link rel="stylesheet" href="./Style.css" />
+  </head>
+  <body>
+    <div class="top-container">
+      <div class="backg"></div>
+      <div class="container-divs">
+        <div class="logo-ucr">
+          <img
+            src="./Images/universidad-de-costa-rica-logo-arreglo.png"
+            alt=""
+            class="logo-ucr"
+          />
+        </div>
+        <img src="./Images/logo-UCR.png" alt="" class="logo-ucr-01" />
+      </div>
+    </div>
+
+    <div class="header" id="myHeader">
+      <div class="dropdown" tab-index="0">
+        <button id="dropdown-btn"></button>
+        <ul class="dropdown-content" id="dropdown-content"></ul>
+      </div>
+      <div class="central-div">
+        <h1>Liquid Cristal Display</h1>
+      </div>
+      <img src="./Images/Logo escuela.jpg" alt="" id="Logo-escuela" />
+    </div>
+    <div class="first-seccion">
+      <h1>What is Liquid Cristal Display?</h1>
+      <div class="Section">
+        <img src="./Images/Pantalla de crsital liquido.png" alt="" id="Image01info" />
+        <p>information about the left seccion</p>
+      </div>
+      <h1>Principal carateristics</h1>
+      <div class="Section">
+        <p>information about the left seccion</p>
+        <img src="./Images/images.jpg" alt="" id="Image01info" />
+      </div>
+      <h1>How does it function?</h1>
+      <div class="Section">
+        <img src="./Images/images.jpg" alt="" id="Image01info" />
+        <p>information about the left seccion</p>
+      </div>
+    </div>
+    <script src="./App.js"></script>
+  </body>
+</html>
+<script>document.addEventListener("DOMContentLoaded", () => {
+  const locale = localStorage.getItem("selectedLocale") || "en-GB"; // Idioma predeterminado: español
+  updateFlag(locale);
+});
+
+function updateFlag(locale) {
+  const intlLocale = new Intl.Locale(locale);
+  const langName = new Intl.DisplayNames([locale], { type: "language" }).of(intlLocale.language);
+  const flagSrc = getFlagSrc(intlLocale.region);
+
+  // Actualizar el botón del menú desplegable
+  const dropdownBtn = document.getElementById("dropdown-btn");
+  dropdownBtn.innerHTML = `<img src="${flagSrc}" /> ${langName} <span class="arrow-down"></span>`;
+}
+
+function getFlagSrc(countryCode) {
+  return /^[A-Z]{2}$/.test(countryCode)
+    ? `https://flagsapi.com/${countryCode.toUpperCase()}/shiny/64.png`
+    : "";
+}
+</script>
+"C:/Users/Randy Barrantes/Downloads/Convencion.txt"
